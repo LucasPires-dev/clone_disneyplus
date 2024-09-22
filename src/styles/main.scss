@@ -1,5 +1,55 @@
-body {
-    background-color: pink;
-    color: white;
-    font-size: 16px;
+@use 'variaveis';
+@use 'hero';
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+@mixin text($fontSize: 16px){
+    font-size: $fontSize;
+    line-height: $fontSize + 10px;
+    color: variaveis.$corTextoSecundario;
+}
+
+@mixin title($fontSize: 40px){
+    @include text($fontSize);
+    color: variaveis.$corTextoPrincipal;
+}
+
+body{
+ background-color: variaveis.$corDeFundo;
+ font-family: Avenir
+}
+
+.text--big {
+    @include text(18px)
+}
+
+.text {
+    @include text;
+}
+
+.text--small {
+    @include text(12px)
+}
+
+
+.title--big {
+    @include title(44px);
+}
+
+.title {
+    @include title;
+}
+
+.title--small {
+    @include title(28px);
+}
+
+.link-text {
+    @include text(18px);
+    color: variaveis.$corTextoPrincipal;
+    text-decoration: underline;
 }
